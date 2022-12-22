@@ -9,7 +9,7 @@ phases:
       -echo checking the python version
       -python3 --version
       -echo installing CFN-LINT...
-      -pip3 install cfn-lint
+      -pip install cfn-lint
       -echo checking the CFN-LINT version
       -cfn-lint --version
   build:
