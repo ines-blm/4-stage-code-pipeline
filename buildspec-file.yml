@@ -1,4 +1,4 @@
-version: 0.2   
+lsversion: 0.2   
 
 phases:
   install:
@@ -6,16 +6,23 @@ phases:
       python: 3.8 #it will install python 3.8 on the server
   pre_build:
     commands:
-      -echo We ARE ENTERING THE PREBUILD PHASE...
-      -echo checking the python version installed
-      -python --version
+      -echo checking the python version
+      -python3 --version
+      -echo installing CFN-LINT...
+      -pip3 install cfn-lint
+      -echo checking the CFN-LINT version
+      -cfn-lint --version
   build:
     commands:
-      -echo **** Build on `date` ***** 
+      -echo ****** TESTING OUR TEMPLATE ****** 
+      -cfn-lint cloudformation-template.yml
+      -echo ****** Build cloudformation template started on `date` ******
+      -aws cloudformation package --template-file  cloudformation-template.yml --s3-bucket my-dev-source-bucket-prod --output-template-file outputTemplate.yaml 
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
-   files:
-     - '**/*' # zip back everythin up 
+  files:
+    -cloudformation-template.yml
+    -outputTemplate.yaml
      
