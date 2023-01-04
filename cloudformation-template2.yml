@@ -215,3 +215,29 @@ Resources:
     Type: AWS::EC2::EIP
     Properties:
       InstanceId: !Ref Ec2Instance       
+
+Outputs:
+  myVPCId:  
+    Description: The ID of the VPC
+    Value: !Ref myVPC
+    Export:
+      Name: !Sub '${AWS::StackName}-VPCID'
+  publicSubnet1:
+    Description: The subnet ID to use for publicSubnet1
+    Export: 
+    Value: !Ref publicSubnet1
+    Export:
+      Name: !Sub '${AWS::StackName}-SubnetID' #replacing a string
+  publicSubnet2:
+    Description: The subnet ID to use for publicSubnet2
+    Export: 
+    Value: !Ref publicSubnet2
+    Export:
+      Name: !Sub '${AWS::StackName}-SubnetID' #replacing a string    
+  InstanceSecurityGroup:
+    Description: The security group ID 
+    Value: !GetAtt 
+      - InstanceSecurityGroup
+      - GroupId
+    Export:
+      Name: !Sub '${AWS::StackName}-SecurityGroupID'
