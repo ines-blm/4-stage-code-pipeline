@@ -222,7 +222,7 @@ Outputs:
       - GroupId
     Export:
       Name: !Sub '${AWS::StackName}-SecurityGroupID'
-      
+  #InstanceDNS    
   InstanceDNS:
     Description: DNS Name of the newly created EC2 instance
     Value: !GetAtt
