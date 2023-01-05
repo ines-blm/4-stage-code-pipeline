@@ -241,5 +241,8 @@ Outputs:
     Value: !Join
       - ''
       - - "http://"
-        - InstanceDNS 
+        - !GetAtt
+            - Ec2Instance
+            - PublicDnsName
+          
       
