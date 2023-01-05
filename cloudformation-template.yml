@@ -236,3 +236,6 @@ Outputs:
     Value: !GetAtt
       - Ec2Instance
       - PublicDnsName
+  Instance:
+    Description: DNS Name of the newly created EC2 instance
+    Value: Fn::Join: [ '', [ "http://", InstanceDNS ] ]
