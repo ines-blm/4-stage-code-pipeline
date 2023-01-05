@@ -240,6 +240,6 @@ Outputs:
     Description: DNS Name of the newly created EC2 instance
     Value: !Join
       - ''
-      - "http://"
-      - InstanceDNS 
+      - - "http://"
+        - InstanceDNS 
       
