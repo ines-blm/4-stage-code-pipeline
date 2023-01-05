@@ -213,14 +213,12 @@ Outputs:
     Export:
       Name: !Sub '${AWS::StackName}-VPCID'
   publicSubnet1:
-    Description: The subnet ID to use for publicSubnet1
-    Export: 
+    Description: The subnet ID to use for publicSubnet1 
     Value: !Ref publicSubnet1
     Export:
       Name: !Sub '${AWS::StackName}-publSubnetID' #replacing a string
   publicSubnet2:
     Description: The subnet ID to use for publicSubnet2
-    Export: 
     Value: !Ref publicSubnet2
     Export:
       Name: !Sub '${AWS::StackName}-pub2SubnetID' #replacing a string    
