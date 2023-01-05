@@ -192,7 +192,7 @@ Resources:
           yum install -y httpd
           systemctl start httpd
           systemctl enable httpd
-          echo "<html><body><h1>Hello World in ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+          echo "<html><body><h1>Hello World in ${AWS::Region} Test<h1></body></html>" > /var/www/html/index.html
  
   MyEIP:
     Type: AWS::EC2::EIP
