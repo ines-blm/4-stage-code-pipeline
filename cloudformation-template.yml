@@ -151,14 +151,7 @@ Resources:
         Ref: publicSubnet2
       NetworkAclId: 
         Ref: MyPublicNetworkAcl
-
-#   #Internet Getway
-#   myInternetGateway:
-#     Type: AWS::EC2::InternetGateway
-#     Properties:
-#       Tags:
-#       - Key: Name
-#         Value: my-IG  
+  
   VPCGatewayAttachment:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
@@ -229,8 +222,7 @@ Outputs:
       - GroupId
     Export:
       Name: !Sub '${AWS::StackName}-SecurityGroupID'
-     
-     
+      
   InstanceDNS:
     Description: DNS Name of the newly created EC2 instance
     Value: !GetAtt
