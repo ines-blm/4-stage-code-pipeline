@@ -229,3 +229,13 @@ Outputs:
       - GroupId
     Export:
       Name: !Sub '${AWS::StackName}-SecurityGroupID'
+     
+     
+  InstanceDNS:
+    Description: DNS Name of the newly created EC2 instance
+    Value: !Join 
+      - ''
+      - "http://"
+      - !GetAtt
+          - Ec2Instance
+          - PublicDnsName
